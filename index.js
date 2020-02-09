@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 
 function getMobileOperatingSystem() {
-    const [userAgent, setUserAgent] = useState("Desktop")
+    const [userAgent, setUserAgent] = useState(null)
 
     useEffect(() => {
         const userAgent = navigator.userAgent || navigator.vendor || window.opera;
