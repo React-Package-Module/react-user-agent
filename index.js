@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-function getMobileOperatingSystem() {
+export function getOS() {
     const [userAgent, setUserAgent] = useState(null)
 
     useEffect(() => {
@@ -27,9 +27,32 @@ function getMobileOperatingSystem() {
         if (/window/i.test(userAgent)) {
             setUserAgent('Windows')
         }
+
+        if (/ubuntu/i.test(userAgent)) {
+            setUserAgent('Ubuntu')
+        }
     }, [])
 
     return userAgent;
 } 
 
-export default getMobileOperatingSystem;
+export function getPatform() {
+    const [userAgent, setUserAgent] = useState(null)
+
+    useEffect(() => {
+        const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+        // Windows Phone must come first because its UA also contains "Android"
+        if (/Ubuntu|Intel Mac |Windows/i.test(userAgent)) {
+            setUserAgent('Desktop');
+        }
+
+        if (/android|Pad|iPhone|iPod/i.test(userAgent)) {
+            setUserAgent('Mobile');
+        }
+
+        
+    }, [])
+
+    return userAgent;
+}

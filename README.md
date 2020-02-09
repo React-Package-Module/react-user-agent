@@ -20,19 +20,19 @@ npm i -S  react-navigator-user-agent
 
 ``` javascript
 
-import getOS from 'react-navigator-user-agent';
+import {getOS, getPatform} from 'react-navigator-user-agent';
 
 function App () {
 
     return(
         <div>
-        {getOS() !== "Windows" ? (
+        {getPatform() !== "Desktop" ? (
             <div>
             Mobile
             </div>
         ): (
             <div>
-            Mobile
+            Desktop
             </div>
         )}
         </div>
@@ -42,7 +42,17 @@ function App () {
 
 ## OS Support
 
+getOS();
+
  -Android <br>
  -iOS <br>
  -Windows <br>
  -OS X <br>
+
+
+## Patform Support
+
+getPatform();
+
+-Desktop
+-Mobile
